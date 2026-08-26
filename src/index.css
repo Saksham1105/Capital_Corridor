@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  
+  --color-navy: #0A192F;
+  --color-navy-light: #112240;
+  --color-ivory: #FDFBF7;
+  --color-ivory-dark: #F4EFE6;
+  --color-gold: #C5A059;
+  --color-gold-light: #D4B473;
+  --color-gray-soft: #8892B0;
+  --color-gray-dark: #A8B2D1;
+}
+
+body {
+  @apply bg-ivory text-navy antialiased selection:bg-gold selection:text-white;
+}
