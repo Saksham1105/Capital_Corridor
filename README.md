@@ -1,4 +1,4 @@
-# Capital Corridor – Design 4
+# Capital Corridor
 
 Capital Corridor — Structured Finance • Investment Advisory • Capital Market Solutions.
 
