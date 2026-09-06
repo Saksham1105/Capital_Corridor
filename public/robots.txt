@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://capitalcorridor.in/sitemap.xml
+Sitemap: https://www.capitalcorridor.in/sitemap.xml

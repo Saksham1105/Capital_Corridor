@@ -4,13 +4,14 @@ interface SEOProps {
   title: string;
   description: string;
   canonicalUrl?: string;
-  schema?: Record<string, any>;
+  schema?: Record<string, any> | Array<Record<string, any>>;
+  rawTitle?: boolean;
 }
 
-export function SEO({ title, description, canonicalUrl, schema }: SEOProps) {
-  const defaultTitle = 'Capital Corridor | Structured Finance & Advisory';
-  const fullTitle = title === defaultTitle ? title : `${title} | Capital Corridor`;
-  const url = canonicalUrl ? `https://capitalcorridor.in${canonicalUrl}` : 'https://capitalcorridor.in';
+export function SEO({ title, description, canonicalUrl, schema, rawTitle }: SEOProps) {
+  const fullTitle = rawTitle ? title : `${title} | Capital Corridor`;
+  const baseUrl = 'https://www.capitalcorridor.in';
+  const url = canonicalUrl ? `${baseUrl}${canonicalUrl}` : baseUrl;
 
   return (
     <Helmet>
@@ -23,6 +24,7 @@ export function SEO({ title, description, canonicalUrl, schema }: SEOProps) {
       <meta property="og:url" content={url} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
+      <meta property="og:site_name" content="Capital Corridor" />
       
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -38,3 +40,4 @@ export function SEO({ title, description, canonicalUrl, schema }: SEOProps) {
     </Helmet>
   );
 }
+

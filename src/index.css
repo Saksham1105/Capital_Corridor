@@ -1,19 +1,238 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", sans-serif;
-  --font-serif: "Playfair Display", serif;
+  --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-display: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif;
   
-  --color-navy: #0A192F;
-  --color-navy-light: #112240;
-  --color-ivory: #FDFBF7;
-  --color-ivory-dark: #F4EFE6;
+  /* Core brand palette */
+  --color-cc-void: #06101E;
+  --color-cc-deep: #0A1628;
+  --color-cc-midnight: #0F1E35;
+  --color-cc-navy: #162744;
+  --color-cc-steel: #1E3356;
+  --color-cc-muted: #2A4470;
+
+  /* Gold system */
+  --color-cc-gold: #B8973E;
+  --color-cc-gold-warm: #C5A059;
+  --color-cc-gold-light: #D4B473;
+  --color-cc-gold-pale: #E8D5A3;
+
+  /* Cream/ivory */
+  --color-cc-cream: #F8F5F0;
+  --color-cc-ivory: #FDFBF7;
+  --color-cc-warm-white: #FAF8F4;
+
+  /* Text */
+  --color-cc-text-warm: #E4DDD0;
+  --color-cc-text-muted: #9AA8C0;
+  --color-cc-text-subtle: #5A6B89;
+
+  /* Legacy compat */
+  --color-navy: #0A1628;
+  --color-navy-light: #162744;
+  --color-ivory: #F8F5F0;
+  --color-ivory-dark: #F0EBE2;
   --color-gold: #C5A059;
   --color-gold-light: #D4B473;
   --color-gray-soft: #8892B0;
   --color-gray-dark: #A8B2D1;
 }
 
-body {
-  @apply bg-ivory text-navy antialiased selection:bg-gold selection:text-white;
+*, *::before, *::after {
+  box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--color-cc-cream);
+  color: var(--color-cc-deep);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--color-cc-gold-warm);
+  color: white;
+}
+
+/* Font utility classes */
+.font-display {
+  font-family: "Playfair Display", serif;
+}
+
+/* ===================== */
+/* ANIMATION SYSTEM      */
+/* ===================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes revealLine {
+  from { scaleX: 0; }
+  to { scaleX: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes rotateSlowCW {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes counterReveal {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.93); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes lineExpand {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* ===================== */
+/* NOISE TEXTURE OVERLAY */
+/* ===================== */
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.035;
+}
+
+/* ===================== */
+/* SECTION REVEAL        */
+/* ===================== */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===================== */
+/* GEOMETRIC BACKDROP    */
+/* ===================== */
+.geo-grid-bg {
+  background-image: 
+    linear-gradient(rgba(184, 151, 62, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(184, 151, 62, 0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.geo-grid-bg-fine {
+  background-image: 
+    linear-gradient(rgba(184, 151, 62, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(184, 151, 62, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* ===================== */
+/* BUTTON PRIMITIVES     */
+/* ===================== */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  background-color: var(--color-cc-gold-warm);
+  color: var(--color-cc-deep);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-cc-gold-light);
+  box-shadow: 0 8px 32px rgba(197, 160, 89, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 32px;
+  border: 1px solid rgba(197, 160, 89, 0.5);
+  color: var(--color-cc-gold-warm);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-cc-gold-warm);
+  background-color: rgba(197, 160, 89, 0.08);
+}
+
+/* ===================== */
+/* REDUCED MOTION        */
+/* ===================== */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+

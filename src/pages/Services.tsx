@@ -1,296 +1,262 @@
-import { motion } from 'motion/react';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { SEO } from '../components/SEO';
+import { Link, useLocation } from 'react-router-dom';
+import { 
+  Landmark, TrendingUp, Scale, FileCheck, Layers, 
+  ArrowRight, CheckCircle2, Search, Sparkles, MapPin, 
+  Phone, Mail, MessageCircle, ChevronDown, ChevronUp, ShieldCheck
+} from 'lucide-react';
+import { cn } from '../lib/utils';
+import { servicesData } from '../data/servicesData';
 
 export function Services() {
-  const categories = [
-    {
-      title: "Corporate Lending & Structured Credit",
-      desc: "Capital Corridor facilitates and coordinates corporate lending and structured credit solutions to support business expansion, acquisitions, refinancing, and strategic capital requirements.",
-      items: [
-        "Debt Consolidation",
-        "Government Tender Financing",
-        "Loans Against Bonds & NCDs",
-        "External Commercial Borrowings (ECB)",
-        "Lease Rental Discounting (LRD)"
-      ]
-    },
-    {
-      title: "Trade Finance & International Business Solutions",
-      desc: "We provide comprehensive trade finance advisory and coordination support for domestic and cross-border trade transactions.",
-      items: [
-        "Letter of Credit (LC)",
-        "Standby Letter of Credit (SBLC)",
-        "Bank Guarantees (BG)",
-        "SWIFT Message Services",
-        "Corporate Guarantees",
-        "Export Finance",
-        "Export Bill Discounting",
-        "Import Finance",
-        "Buyer's Credit",
-        "Supplier's Credit"
-      ]
-    },
-    {
-      title: "Working Capital & Supply Chain Finance",
-      desc: "We provide advisory and structuring support for working capital and supply chain finance solutions, helping businesses enhance liquidity.",
-      items: [
-        "Term Loans",
-        "Cash Credit (CC)",
-        "Overdraft (OD)",
-        "Drop-Line Overdraft",
-        "Supply Chain Finance"
-      ]
-    },
-    {
-      title: "Receivables & Invoice Financing",
-      desc: "Capital Corridor facilitates receivables financing solutions, enabling businesses to unlock working capital tied up in outstanding invoices.",
-      items: [
-        "Invoice Discounting",
-        "Bill Discounting",
-        "Factoring",
-        "Receivables Securitisation",
-        "Purchase Order (PO) Financing"
-      ]
-    },
-    {
-      title: "Project, Infrastructure & Institutional Funding",
-      desc: "Advisory, structuring, and coordination support for long-term project financing solutions across diverse sectors.",
-      items: [
-        "Greenfield Projects",
-        "Brownfield Projects",
-        "Industrial / Manufacturing Projects",
-        "Renewable Energy",
-        "Hospitality",
-        "Expansion / Modernization",
-        "Capacity Enhancement",
-        "Infrastructure Projects",
-        "Transport & Logistics",
-        "Warehousing & Industrial Parks",
-        "Urban Infrastructure & Utilities",
-        "PPP Projects",
-        "Acquisition Financing",
-        "CapEx Financing",
-        "Healthcare Institutions",
-        "Educational Infrastructure Development"
-      ]
-    },
-    {
-      title: "Real Estate Funding",
-      desc: "Specialised real estate financing advisory for developers, builders, and real estate projects.",
-      items: [
-        "Builder & Developer Funding",
-        "Construction Finance",
-        "Inventory Funding"
-      ]
-    },
-    {
-      title: "Asset & Equipment Finance",
-      desc: "Advisory and structuring support for asset-backed financing solutions, helping businesses acquire, refinance, and leverage assets.",
-      items: [
-        "Equipment & Machinery Finance",
-        "Inventory / Stock Finance",
-        "Commodity Financing",
-        "Revenue-Based Financing",
-        "Non-Recourse Loans",
-        "Margin Financing"
-      ]
-    },
-    {
-      title: "Stressed Asset & Resolution Funding",
-      desc: "Capital Corridor advises and coordinates with stakeholders on stressed asset resolution, debt restructuring, and One-Time Settlements (OTS).",
-      items: [
-        "SMA-0 Funding",
-        "SMA-1 Funding",
-        "SMA-2 Funding",
-        "NPA & NPL Funding",
-        "ARC Funding & Asset Takeovers",
-        "One-Time Settlement (OTS) Structuring",
-        "Interim Finance under IBC",
-        "NCLT Funding Support",
-        "Stressed Asset Revival Funding",
-        "Debt Resolution & Recapitalisation",
-        "Debt Restructuring"
-      ]
-    },
-    {
-      title: "Investment Banking & Capital Raising",
-      desc: "We provide advisory and coordination support for debt, equity, and growth capital raising, assisting businesses in securing appropriate capital solutions.",
-      items: [
-        "Venture Capital",
-        "Private Equity Funding",
-        "Equity Funding",
-        "FDI — Debt & Equity Structuring",
-        "Funding for Listed Companies",
-        "Private Credit Funding",
-        "Structured Debt Solutions",
-        "Mezzanine Financing"
-      ]
-    },
-    {
-      title: "Retail & Business Loans",
-      desc: "Advisory and coordination support for a broad range of secured and unsecured loan solutions.",
-      items: [
-        "Secured Loans",
-        "Unsecured Loans",
-        "Home Loans",
-        "Personal Loans",
-        "Car Loans",
-        "Education Loans",
-        "Gold Loans",
-        "Business Loans",
-        "Professional Loans",
-        "Loan Against Property (LAP)",
-        "Loan Against Securities (LAS)",
-        "Balance Transfer Facilities"
-      ]
-    },
-    {
-      title: "Government-Backed Loan Schemes",
-      desc: "Capital Corridor facilitates access to government-supported financing programmes by coordinating with appropriate institutions.",
-      items: [
-        "PMMY — Pradhan Mantri Mudra Yojana",
-        "CGTMSE",
-        "ECLGS"
-      ]
-    },
-    {
-      title: "Impact & Development Finance",
-      desc: "We provide advisory and structuring support to organisations seeking funding solutions that promote measurable social impact.",
-      items: [
-        "CSR Funding Advisory",
-        "NGO & Non-Profit Funding Solutions"
-      ]
-    },
-    {
-      title: "Capital Markets",
-      desc: "Strategic advisory, structuring, and transaction coordination support for companies seeking to raise capital through public and private equity market instruments.",
-      items: [
-        "IPO, FPO, Rights Issue, Bonus Issue, Offer for Sale (OFS)",
-        "QIP, Private Placement, Preferential Allotment, Pre-IPO Placements",
-        "SME IPO, Mainboard IPO, Direct Listing",
-        "Block Placement Advisory",
-        "IPO Transaction Coordination",
-        "Capital-Markets Documentation Coordination",
-        "Investor & Institutional Coordination",
-        "Coordination with SEBI-Registered Intermediaries",
-        "Due-Diligence Coordination",
-        "5 P's: Planning",
-        "5 P's: Preparation",
-        "5 P's: Process Coordination",
-        "5 P's: Public Offering Support",
-        "5 P's: Post-IPO Advisory"
-      ]
-    },
-    {
-      title: "Listed Company Acquisition & Public Market Entry",
-      desc: "Strategic advisory and transaction coordination support for businesses exploring public market opportunities through acquisitions and restructuring.",
-      items: [
-        "Listed-Company Identification",
-        "Acquisition / Transaction Structures",
-        "Shareholding & Ownership Structuring",
-        "Capital-Structure Planning",
-        "Business Integration",
-        "Corporate Restructuring",
-        "Regulatory / Governance Coordination",
-        "Investor Relations",
-        "Strategic Value Creation",
-        "End-to-End Transaction Coordination"
-      ]
-    },
-    {
-      title: "Legal, Insolvency, Restructuring & Recovery Advisory",
-      desc: "Capital Corridor provides strategic advisory and coordination support in relation to insolvency, restructuring, debt recovery, and stressed asset resolution.",
-      items: [
-        "Insolvency & Bankruptcy Advisory",
-        "IBC / CIRP Strategy",
-        "Debt Restructuring & Settlement",
-        "Debt Recovery & Enforcement Advisory",
-        "SARFAESI-Related Advisory",
-        "NPA Resolution",
-        "Stressed-Asset Resolution",
-        "Business Turnaround & Revival",
-        "Distressed-Asset / NCLT Transaction Advisory",
-        "Coordination with Qualified Legal & Professional Advisors"
-      ]
+  const location = useLocation();
+  const [activeCategory, setActiveCategory] = useState<string>("funding-loans");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    if (location.hash) {
+      const targetId = location.hash.replace('#', '');
+      const matchedCategory = servicesData.find(cat => 
+        cat.id === targetId || cat.services.some(srv => srv.id === targetId)
+      );
+      if (matchedCategory) {
+        setActiveCategory(matchedCategory.id);
+        const el = document.getElementById(targetId);
+        if (el) {
+          setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+        }
+      }
     }
-  ];
+  }, [location]);
+
+  const currentCat = servicesData.find(c => c.id === activeCategory) || servicesData[0];
+
+  const filteredServices = searchQuery.trim()
+    ? currentCat.services.filter(s => 
+        s.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        s.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        s.sections.some(sec => sec.items.some(it => it.toLowerCase().includes(searchQuery.toLowerCase())))
+      )
+    : currentCat.services;
 
   return (
-    <div className="flex flex-col w-full bg-[#FDFBF7]">
+    <div className="flex flex-col w-full bg-[#FBF9F5]">
       <SEO 
-        title="Complete Services Portfolio" 
-        description="Capital Corridor facilitates, coordinates, and advises on a comprehensive range of financial solutions, from corporate lending to capital markets."
+        title="Comprehensive Financial Services & Advisory Directory — Capital Corridor" 
+        description="Explore Capital Corridor's 5 core service pillars: Funding & Loans, Financial Advisory & ECM, Legal & Insolvency, Documentation Support, and Extended Network Services."
         canonicalUrl="/services"
       />
-      
-      {/* Header */}
-      <section className="pt-40 pb-20 lg:pt-48 lg:pb-24 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl"
-          >
-            <p className="text-[#C5A059] font-medium tracking-[0.2em] uppercase mb-6 text-xs">Advisory & Structuring Portfolio</p>
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-serif text-slate-900 mb-8 leading-tight tracking-tight">
-              Comprehensive <span className="italic font-light text-slate-500">financial solutions.</span>
-            </h1>
-            <p className="text-lg text-slate-600 font-light leading-relaxed max-w-2xl">
-              As an independent financial facilitator, we provide structuring, advisory, and coordination support to help businesses access capital, resolve stressed assets, and navigate complex transactions.
-            </p>
-          </motion.div>
-        </div>
-      </section>
 
-      {/* Services Editorial Layout */}
-      <section className="py-24 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
-            
-            <div className="lg:col-span-4">
-              <div className="sticky top-32">
-                <h2 className="text-3xl font-serif text-slate-900 mb-6">Our Capabilities</h2>
-                <p className="text-slate-600 font-light leading-relaxed mb-8">
-                  We structure and coordinate tailored solutions spanning corporate credit, structured finance, investment banking, and capital markets.
-                </p>
-                <div className="h-px w-full bg-slate-200 mb-8"></div>
-                <ul className="space-y-4">
-                  {categories.map((category, idx) => (
-                    <li key={idx}>
-                      <a href={`#service-${idx}`} className="text-sm font-medium tracking-wide text-slate-500 hover:text-[#C5A059] transition-colors line-clamp-1">
-                        {String(idx + 1).padStart(2, '0')}. {category.title}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+      {/* Hero Header */}
+      <section className="pt-36 pb-20 bg-[#050C18] text-white border-b border-[#14233D] px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(197,160,89,0.06),transparent_50%)] pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto relative z-10 space-y-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#091528] border border-[#C5A059]/40 rounded-full">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059]" />
+            <span className="text-[10px] uppercase tracking-[0.25em] font-semibold text-[#C5A059]">
+              COMPREHENSIVE ADVISORY DIRECTORY
+            </span>
+          </div>
 
-            <div className="lg:col-span-8 space-y-20 lg:space-y-32">
-              {categories.map((category, idx) => (
-                <div key={idx} id={`service-${idx}`} className="relative scroll-mt-32">
-                  <span className="text-[#C5A059] font-medium tracking-widest uppercase text-xs mb-4 block">
-                    {String(idx + 1).padStart(2, '0')}
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-serif text-slate-900 mb-6">{category.title}</h3>
-                  <p className="text-lg text-slate-600 font-light leading-relaxed mb-10">{category.desc}</p>
-                  
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-5 gap-x-12 pt-8 border-t border-slate-200">
-                    {category.items.map((item, itemIdx) => (
-                      <div key={itemIdx} className="flex items-start">
-                        <div className="h-px w-3 bg-[#C5A059] mt-2.5 mr-4 shrink-0"></div>
-                        <span className="text-slate-800 font-light text-sm leading-relaxed">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
+          <h1 className="text-4xl sm:text-6xl font-serif text-white tracking-tight leading-tight">
+            Institutional Advisory &amp; <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5EAD4] via-[#C5A059] to-[#DFBF7A] italic">
+              Structured Capital Solutions
+            </span>
+          </h1>
 
+          <p className="text-base sm:text-lg font-light text-slate-300 max-w-3xl leading-relaxed">
+            Spanning five core practices from high-value debt syndication and Equity Capital Markets (ECM) to statutory insolvency advisory and bank-grade documentation.
+          </p>
+
+          {/* Quick Pillar Jump Bar */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 pt-6 border-t border-[#14233D]">
+            {servicesData.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => {
+                  setActiveCategory(cat.id);
+                  setSearchQuery("");
+                }}
+                className={cn(
+                  "p-3 rounded-sm border text-left transition-all duration-200",
+                  activeCategory === cat.id
+                    ? "bg-[#0C1A32] border-[#C5A059] text-white shadow-lg"
+                    : "bg-[#081224] border-[#152642] text-slate-400 hover:text-white hover:border-[#1E3A65]"
+                )}
+              >
+                <div className="text-[10px] font-mono text-[#C5A059] font-bold">PILLAR {cat.pillarNum}</div>
+                <div className="text-xs font-serif font-semibold mt-0.5 line-clamp-1">{cat.shortName}</div>
+              </button>
+            ))}
           </div>
         </div>
       </section>
+
+      {/* Main Content Area */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 border-b border-[#E5DFD5]">
+        <div className="max-w-7xl mx-auto space-y-12">
+          
+          {/* Active Pillar Showcase Header */}
+          <div className="bg-white border border-[#E0D9CD] p-8 sm:p-10 rounded-sm shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+            <div className="space-y-3 max-w-3xl">
+              <div className="flex items-center gap-3">
+                <span className="font-mono text-xs font-bold text-[#9A7830] bg-[#FAF5EC] px-3 py-1 rounded border border-[#EADBBE]">
+                  PILLAR {currentCat.pillarNum}
+                </span>
+                <span className="text-xs uppercase tracking-widest text-slate-500 font-medium">
+                  {currentCat.services.length} Specialized Capabilities
+                </span>
+              </div>
+              <h2 className="text-2xl sm:text-4xl font-serif font-bold text-slate-900">
+                {currentCat.name}
+              </h2>
+              <p className="text-xs uppercase tracking-wider text-[#9A7830] font-semibold">
+                {currentCat.tagline}
+              </p>
+              <p className="text-sm text-slate-600 font-light leading-relaxed">
+                {currentCat.summary}
+              </p>
+            </div>
+
+            {/* Search Filter within current pillar */}
+            <div className="w-full lg:w-72 shrink-0">
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-2">
+                Filter Capabilities
+              </label>
+              <div className="relative">
+                <Search className="absolute left-3.5 top-3 h-4 w-4 text-slate-400" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search products..."
+                  className="w-full pl-10 pr-4 py-2.5 bg-[#FAF8F5] border border-[#DDD5C7] rounded-sm text-xs focus:outline-none focus:border-[#C5A059]"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Services Cards Grid with Strict Independent Reset Numbering (01, 02, 03...) */}
+          <div className="space-y-8">
+            {filteredServices.map((service) => (
+              <div
+                key={service.id}
+                id={service.id}
+                className="bg-white border border-[#E0D9CD] rounded-sm p-8 sm:p-10 shadow-sm hover:border-[#C5A059] transition-all duration-300 scroll-mt-28"
+              >
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                  
+                  {/* Left Column: Number & Title */}
+                  <div className="lg:col-span-5 space-y-4">
+                    <div className="flex items-center gap-3">
+                      <span className="font-mono text-sm font-bold text-white bg-[#0A1628] px-3 py-1 rounded-sm border border-[#162744]">
+                        {service.num}
+                      </span>
+                      {service.locationNote && (
+                        <span className="text-[10px] uppercase tracking-wider font-semibold text-[#9A7830] bg-[#FAF5EC] px-2.5 py-0.5 rounded border border-[#EADBBE] flex items-center gap-1">
+                          <MapPin className="h-3 w-3" /> {service.locationNote}
+                        </span>
+                      )}
+                    </div>
+
+                    <h3 className="text-xl sm:text-2xl font-serif font-bold text-slate-900 leading-snug">
+                      {service.title}
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                      {service.desc}
+                    </p>
+
+                    <div className="pt-2">
+                      <Link
+                        to="/contact"
+                        className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#9A7830] hover:text-slate-900 transition-colors"
+                      >
+                        <span>Initiate Transaction Structuring</span>
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* Right Column: Structured Sub-sections & Instruments */}
+                  <div className="lg:col-span-7 bg-[#FAF8F4] border border-[#E8E1D5] p-6 sm:p-7 rounded-sm space-y-6">
+                    {service.sections.map((section, secIdx) => (
+                      <div key={secIdx} className="space-y-3">
+                        <div className="text-xs font-bold uppercase tracking-wider text-slate-800 flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-[#C5A059]" />
+                          {section.label}
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                          {section.items.map((item, itemIdx) => (
+                            <div 
+                              key={itemIdx}
+                              className="p-2.5 bg-white border border-[#E5DFD3] rounded-sm text-xs text-slate-700 font-light flex items-start gap-2 shadow-2xs"
+                            >
+                              <CheckCircle2 className="h-3.5 w-3.5 text-[#9A7830] shrink-0 mt-0.5" />
+                              <span className="leading-snug">{item}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                </div>
+              </div>
+            ))}
+
+            {filteredServices.length === 0 && (
+              <div className="p-12 text-center bg-white border border-[#E0D9CD] rounded-sm space-y-4">
+                <p className="text-sm text-slate-600 font-light">
+                  No service matching &ldquo;{searchQuery}&rdquo; was found in this pillar.
+                </p>
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="px-4 py-2 bg-[#0A1628] text-white text-xs uppercase font-bold tracking-wider rounded-sm"
+                >
+                  Clear Filter
+                </button>
+              </div>
+            )}
+          </div>
+
+        </div>
+      </section>
+
+      {/* Direct Leadership CTA Banner */}
+      <section className="py-16 bg-[#060D1A] text-white px-4 sm:px-6 lg:px-8 border-b border-[#14233D]">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
+          <div className="space-y-2 max-w-2xl text-center lg:text-left">
+            <h3 className="text-2xl sm:text-3xl font-serif text-white">
+              Need a Customized Advisory Structure?
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
+              Every mandate is unique. Connect directly with our Partners to formulate a tailored financial, credit, or documentation roadmap.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0">
+            <Link
+              to="/contact"
+              className="px-7 py-3.5 bg-[#C5A059] text-[#060D1A] text-xs font-bold uppercase tracking-[0.18em] rounded-sm hover:bg-[#D4B473] transition-colors shadow-lg"
+            >
+              Request Consultation
+            </Link>
+            <a
+              href="tel:+919982222210"
+              className="px-6 py-3.5 bg-[#09152A] text-slate-200 text-xs font-semibold uppercase tracking-[0.18em] border border-[#1E3458] hover:border-[#C5A059] transition-colors rounded-sm flex items-center gap-2"
+            >
+              <Phone className="h-3.5 w-3.5 text-[#C5A059]" />
+              <span>+91 99822 22210</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }

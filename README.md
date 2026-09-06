@@ -1,4 +1,4 @@
-# Capital Corridor
+# Capital Corridor – Design 4
 
 Capital Corridor — Structured Finance • Investment Advisory • Capital Market Solutions.
 
@@ -51,4 +51,5 @@ npm run build
 ```
 
 ## License
-This project is licensed under the MIT License.
+All rights reserved. Proprietary copyright license. See [LICENSE](file:///LICENSE) for details.
+

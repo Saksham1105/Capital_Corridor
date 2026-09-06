@@ -1,160 +1,164 @@
-import { motion } from 'motion/react';
 import { SEO } from '../components/SEO';
+import { Link } from 'react-router-dom';
+import { 
+  TrendingUp, ArrowRight, CheckCircle2, ShieldCheck, 
+  BarChart3, Building2, Sparkles, Layers, FileText, Users 
+} from 'lucide-react';
 
 export function CapitalMarkets() {
+  const fivePs = [
+    {
+      num: "01",
+      title: "Planning",
+      desc: "Comprehensive IPO readiness assessment, business model validation, capital structure review, and bespoke listing roadmap."
+    },
+    {
+      num: "02",
+      title: "Preparation",
+      desc: "Coordination of due diligence with qualified professionals, corporate governance structuring, and Draft Red Herring Prospectus (DRHP) coordination."
+    },
+    {
+      num: "03",
+      title: "Process Coordination",
+      desc: "Liaising with SEBI-registered Merchant Bankers, stock exchanges (BSE/NSE), legal counsel, statutory auditors, and registrars."
+    },
+    {
+      num: "04",
+      title: "Public Offering Support",
+      desc: "Formulating institutional investor positioning, valuation advisory, book-building strategy, and anchor investor coordination."
+    },
+    {
+      num: "05",
+      title: "Post-IPO Advisory",
+      desc: "Post-listing governance advisory, quarterly compliance alignment, investor relations (IR) roadmap, and future secondary capital raising."
+    }
+  ];
+
+  const listedAcquisition = [
+    { num: "01", title: "Target Identification & Screening", desc: "Identifying viable listed company targets suited for acquisition or reverse merger." },
+    { num: "02", title: "Transaction Structuring", desc: "Structuring share purchase agreements, open offers, and preferential allotments." },
+    { num: "03", title: "Business Integration & Restructuring", desc: "Post-acquisition corporate restructuring and strategic value creation." },
+    { num: "04", title: "Regulatory & SEBI Compliance", desc: "Liaising with SEBI merchant bankers, legal counsel, and stock exchange desks." },
+    { num: "05", title: "Capital Markets IR & Re-rating", desc: "Institutional positioning to unlock long-term enterprise valuation." }
+  ];
+
   return (
-    <div className="flex flex-col w-full bg-[#FDFBF7]">
+    <div className="flex flex-col w-full bg-[#FBF9F5]">
       <SEO 
-        title="Capital Markets Advisory" 
-        description="Strategic advisory for public and private equity market instruments, including IPOs."
-        canonicalUrl="/capital-markets"
+        title="Capital Markets & IPO Advisory (5 P's Framework) — Capital Corridor" 
+        description="Comprehensive Equity Capital Market (ECM) solutions, SME & Mainboard IPO advisory under the 5 P's Framework, and Listed Company Acquisition advisory."
+        canonicalUrl="/services/capital-markets"
       />
-      {/* Header */}
-      <section className="pt-40 pb-20 lg:pt-48 lg:pb-24 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl"
-          >
-            <p className="text-[#C5A059] font-medium tracking-[0.2em] uppercase mb-6 text-xs">Capital Markets</p>
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-serif text-slate-900 mb-8 leading-tight tracking-tight">
-              Strategic advisory for <span className="italic font-light text-slate-500">public & private equity.</span>
-            </h1>
-          </motion.div>
-        </div>
-      </section>
 
-      {/* Services Overview */}
-      <section className="py-24 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24">
-            
-            <div className="space-y-8">
-              <h3 className="text-2xl font-serif text-slate-900 border-b border-slate-900 pb-4">Public Market Issuances</h3>
-              <ul className="space-y-4 font-light text-slate-700">
-                {["Initial Public Offering (IPO)", "Follow-on Public Offering (FPO)", "Rights Issue", "Bonus Issue", "Offer for Sale (OFS)"].map((item, idx) => (
-                  <li key={idx} className="flex items-center">
-                    <span className="w-4 border-t border-[#C5A059] mr-4"></span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            <div className="space-y-8">
-              <h3 className="text-2xl font-serif text-slate-900 border-b border-slate-900 pb-4">Private Market Issuances</h3>
-              <ul className="space-y-4 font-light text-slate-700">
-                {["Qualified Institutional Placement (QIP)", "Private Placement", "Preferential Allotment", "Pre-IPO Placements"].map((item, idx) => (
-                  <li key={idx} className="flex items-center">
-                    <span className="w-4 border-t border-[#C5A059] mr-4"></span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            <div className="space-y-8">
-              <h3 className="text-2xl font-serif text-slate-900 border-b border-slate-900 pb-4">Market Listing & Access</h3>
-              <ul className="space-y-4 font-light text-slate-700">
-                {["SME IPO", "Mainboard IPO", "Direct Listing"].map((item, idx) => (
-                  <li key={idx} className="flex items-center">
-                    <span className="w-4 border-t border-[#C5A059] mr-4"></span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            <div className="space-y-8">
-              <h3 className="text-2xl font-serif text-slate-900 border-b border-slate-900 pb-4">Transaction Support Services</h3>
-              <ul className="space-y-4 font-light text-slate-700">
-                {["Block Placement Advisory", "IPO Transaction Coordination", "Capital Markets Documentation Coordination", "Investor & Institutional Coordination", "Coordination with SEBI-Registered Intermediaries", "Due Diligence Coordination"].map((item, idx) => (
-                  <li key={idx} className="flex items-center">
-                    <span className="w-4 border-t border-[#C5A059] mr-4"></span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
+      {/* Hero Header */}
+      <section className="pt-36 pb-20 bg-[#050C18] text-white border-b border-[#14233D] px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(197,160,89,0.06),transparent_50%)] pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto relative z-10 space-y-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#091528] border border-[#C5A059]/40 rounded-full">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059]" />
+            <span className="text-[10px] uppercase tracking-[0.25em] font-semibold text-[#C5A059]">
+              CAPITAL MARKETS ADVISORY
+            </span>
           </div>
+
+          <h1 className="text-4xl sm:text-6xl font-serif text-white tracking-tight leading-tight">
+            Public Capital Markets &amp; <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5EAD4] via-[#C5A059] to-[#DFBF7A] italic">
+              Strategic Equity Solutions
+            </span>
+          </h1>
+
+          <p className="text-base sm:text-lg font-light text-slate-300 max-w-3xl leading-relaxed">
+            Guiding high-growth enterprises and promoters through public market listings, Qualified Institutional Placements (QIP), and strategic listed company acquisitions.
+          </p>
         </div>
       </section>
 
-      {/* 5 P's Framework */}
-      <section className="py-24 lg:py-32 bg-[#0B1120] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-20">
-            <h2 className="text-3xl lg:text-4xl font-serif mb-6">IPO Framework (5 P's)</h2>
-            <p className="text-slate-400 font-light text-lg max-w-2xl leading-relaxed">
-              Our structured 5 P's Framework supports IPO readiness, facilitates coordination with SEBI-registered intermediaries, and assists clients throughout the capital-raising process.
+      {/* Section 1: The 5 P's IPO Framework */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 border-b border-[#E5DFD5]">
+        <div className="max-w-7xl mx-auto space-y-12">
+          
+          <div className="max-w-3xl">
+            <span className="font-mono text-xs font-bold text-[#9A7830] uppercase tracking-widest block mb-2">
+              PROPRIETARY FRAMEWORK
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-900 leading-tight">
+              The IPO Framework (5 P&apos;s) &amp; End-to-End Support
+            </h2>
+            <p className="text-sm font-light text-slate-600 mt-2 leading-relaxed">
+              We structure your journey to the capital markets through a disciplined 5-stage advisory process, coordinating with SEBI-registered merchant bankers and institutional desks.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 border-t border-slate-800 pt-12">
-            {[
-              { title: "PLANNING", items: ["IPO readiness assessment", "Capital structure review", "Listing strategy"] },
-              { title: "PREPARATION", items: ["Documentation coordination", "Due diligence coordination", "Corporate restructuring", "DRHP coordination"] },
-              { title: "PROCESS", items: ["Regulatory submissions", "Intermediary coordination", "Timeline monitoring"] },
-              { title: "PUBLIC OFFERING", items: ["Investor positioning", "Valuation advisory", "Public offering support"] },
-              { title: "POST-IPO", items: ["Post-listing advisory", "Investor relations", "Future growth advisory"] }
-            ].map((step, idx) => (
-              <div key={idx} className="relative">
-                <span className="block text-[#C5A059] font-serif text-3xl italic mb-6">0{idx + 1}</span>
-                <h3 className="text-sm font-bold tracking-widest uppercase mb-6">{step.title}</h3>
-                <ul className="space-y-3">
-                  {step.items.map((item, i) => (
-                    <li key={i} className="text-sm text-slate-400 font-light leading-relaxed">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {fivePs.map((p) => (
+              <div 
+                key={p.num}
+                className="bg-white border border-[#E0D9CD] p-8 rounded-sm shadow-sm hover:border-[#C5A059] transition-all space-y-3"
+              >
+                <span className="font-mono text-xs font-bold text-[#9A7830] bg-[#FAF5EC] px-2.5 py-1 rounded border border-[#EADBBE]">
+                  PHASE {p.num}
+                </span>
+                <h3 className="font-serif text-xl font-bold text-slate-900 mt-2">{p.title}</h3>
+                <p className="text-xs font-light text-slate-600 leading-relaxed">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* Section 2: Listed Company Acquisition */}
+      <section className="py-20 bg-[#070F1E] text-white px-4 sm:px-6 lg:px-8 border-b border-[#14233D]">
+        <div className="max-w-7xl mx-auto space-y-12">
+          <div className="max-w-3xl">
+            <span className="font-mono text-xs font-bold text-[#C5A059] uppercase tracking-widest block mb-2">
+              STRATEGIC M&amp;A
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-serif text-white">
+              Listed Company Acquisition &amp; Public Market Entry
+            </h2>
+            <p className="text-sm font-light text-slate-300 mt-2 leading-relaxed">
+              Helping businesses pursue public market participation through acquisitions, reverse mergers, and strategic listed company takeovers.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {listedAcquisition.map((item) => (
+              <div 
+                key={item.num}
+                className="p-6 bg-[#09152A] border border-[#162744] rounded-sm space-y-2 hover:border-[#C5A059]/60 transition-colors"
+              >
+                <div className="font-mono text-[11px] text-[#C5A059] font-bold">STEP {item.num}</div>
+                <h3 className="font-serif text-base font-semibold text-white">{item.title}</h3>
+                <p className="text-xs text-slate-400 font-light leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Listed Company Advisory */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-            <div className="lg:col-span-5">
-              <h2 className="text-3xl lg:text-4xl font-serif text-slate-900 leading-tight mb-6">
-                Listed Company <br/>
-                <span className="italic font-light text-slate-500">Acquisition & Entry</span>
-              </h2>
-              <p className="text-slate-600 font-light leading-relaxed mb-8">
-                Helping businesses pursue public markets through strategic listed company transactions.
-              </p>
-              <div className="p-6 bg-slate-50 border border-slate-200 text-xs font-light text-slate-500 leading-relaxed">
-                <strong className="font-medium text-slate-700 block mb-2">Regulatory Note:</strong>
-                Capital Corridor is not a SEBI-registered Investment Adviser, Merchant Banker, or Stockbroker. Any advisory relating to shares, securities, or IPOs is informational and consultative in nature. Where required, we coordinate with SEBI-registered intermediaries in accordance with applicable laws.
-              </div>
-            </div>
-            
-            <div className="lg:col-span-6 lg:col-start-7">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-12">
-                {[
-                  "Listed Company Identification",
-                  "Transaction Structuring & Capital Planning",
-                  "Business Integration & Restructuring",
-                  "Regulatory & Governance Coordination",
-                  "Capital Markets & Investor Relations",
-                  "Growth & Strategic Value Creation",
-                  "End-to-End Advisory & Coordination"
-                ].map((item, idx) => (
-                  <div key={idx} className="border-b border-slate-200 pb-4">
-                    <h3 className="text-sm text-slate-800 font-medium">{item}</h3>
-                  </div>
-                ))}
-              </div>
-            </div>
+      {/* CTA */}
+      <section className="py-16 bg-[#050C18] text-white px-4 sm:px-6 lg:px-8 border-b border-[#14233D]">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
+          <div className="space-y-2">
+            <h3 className="text-2xl sm:text-3xl font-serif text-white">
+              Planning a Capital Markets Transaction?
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-300 font-light">
+              Connect with our Partners for a confidential assessment of your listing readiness or acquisition structure.
+            </p>
           </div>
+          <Link
+            to="/contact"
+            className="px-8 py-4 bg-[#C5A059] text-[#050C18] text-xs font-bold uppercase tracking-[0.18em] rounded-sm hover:bg-[#D4B473] transition-colors shrink-0 shadow-lg"
+          >
+            Consult Capital Markets Team
+          </Link>
         </div>
       </section>
+
     </div>
   );
 }
