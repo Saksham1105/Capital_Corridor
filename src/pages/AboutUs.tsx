@@ -156,12 +156,73 @@ export function AboutUs() {
         </div>
       </section>
 
-      {/* Section 3: Leadership Showcase Link */}
+      {/* Section 3: Our Unique Approach / Methodology */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 border-b border-[#E5DFD5]">
+        <div className="max-w-7xl mx-auto space-y-12">
+          <div className="space-y-3">
+            <span className="font-mono text-xs font-bold text-[#9A7830] uppercase tracking-widest block">
+              03 &bull; METHODOLOGY
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-900 leading-tight">
+              Our Unique Approach
+            </h2>
+            <p className="text-sm sm:text-base font-light text-slate-700 max-w-3xl leading-relaxed">
+              There is no one-size-fits-all financial solution. We do not sell off-the-shelf products — we engineer bespoke capital structures.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {[
+              {
+                title: "Understand Before Sourcing",
+                desc: "We evaluate business fundamentals, cash flow dynamics, liabilities, and repayment capacity before recommending financial products."
+              },
+              {
+                title: "Structure Before Sourcing",
+                desc: "We focus on transaction feasibility, financial modeling, and risk optimization to create lender-ready opportunities."
+              },
+              {
+                title: "Design Solutions, Not Just Funding",
+                desc: "We combine corporate finance, trade credit, real estate, and private credit into comprehensive financial architectures."
+              },
+              {
+                title: "Right Capital Provider Matching",
+                desc: "We align mandates with appropriate banks, NBFCs, private credit funds, or ARCs based on risk profiles."
+              },
+              {
+                title: "Operating Where Complexity Exists",
+                desc: "Specialists in multi-institution funding, stressed asset resolution, OTS structures, and special situations."
+              },
+              {
+                title: "Active Execution Involvement",
+                desc: "We manage due diligence, commercial negotiation, approval coordination, and disbursement fulfillment."
+              }
+            ].map((app, idx) => (
+              <div 
+                key={idx} 
+                className="p-8 bg-white border border-[#E0D9CD] rounded-sm shadow-sm hover:border-[#C5A059] transition-all duration-200 space-y-3"
+              >
+                <div className="font-serif font-bold text-lg text-[#9A7830]">
+                  0{idx + 1}
+                </div>
+                <h3 className="font-serif text-xl font-bold text-slate-900 leading-snug">
+                  {app.title}
+                </h3>
+                <p className="text-xs sm:text-sm font-light text-slate-600 leading-relaxed">
+                  {app.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4: Leadership Showcase Link */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 border-b border-[#E5DFD5]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6 space-y-4">
             <span className="font-mono text-xs font-bold text-[#9A7830] uppercase tracking-widest">
-              03 &bull; PARTNERS &amp; LEADERSHIP
+              04 &bull; PARTNERS &amp; LEADERSHIP
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-900 leading-tight">
               Led by Experienced Financial Markets Professionals
