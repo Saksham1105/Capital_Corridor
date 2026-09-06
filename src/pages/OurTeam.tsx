@@ -79,9 +79,6 @@ export function OurTeam() {
 
               <div>
                 <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900">Rahul Mantri</h2>
-                <div className="text-xs uppercase font-bold text-[#9A7830] tracking-widest mt-1">
-                  30+ Years Experience
-                </div>
               </div>
 
               <div className="space-y-2 text-xs text-slate-700 font-light border-t border-slate-100 pt-4">
