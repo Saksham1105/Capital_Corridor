@@ -249,7 +249,6 @@ export function AboutUs() {
                 className="w-full aspect-[4/5] object-cover rounded-sm mb-3 bg-[#0A1628]" 
               />
               <div className="font-serif font-bold text-slate-900 text-sm">Rahul Mantri</div>
-              <div className="text-[10px] text-[#9A7830] font-semibold uppercase tracking-wider">Partner</div>
             </div>
             <div className="bg-white border border-[#E0D9CD] p-4 rounded-sm shadow-sm text-center">
               <img 
@@ -258,7 +257,6 @@ export function AboutUs() {
                 className="w-full aspect-[4/5] object-cover rounded-sm mb-3 bg-[#0A1628]" 
               />
               <div className="font-serif font-bold text-slate-900 text-sm">Daksh Khandelwal</div>
-              <div className="text-[10px] text-[#9A7830] font-semibold uppercase tracking-wider">Partner</div>
             </div>
           </div>
         </div>
