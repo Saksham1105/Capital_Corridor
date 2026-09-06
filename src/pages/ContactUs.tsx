@@ -71,11 +71,8 @@ export function ContactUs() {
           {/* Left Column: Direct Leadership & Locations */}
           <div className="lg:col-span-5 space-y-8">
             <div>
-              <span className="font-mono text-xs font-bold text-[#9A7830] uppercase tracking-widest block mb-2">
-                DIRECT CHANNELS
-              </span>
               <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900">
-                Partner Contacts
+                Contact Us
               </h2>
             </div>
 
@@ -84,9 +81,6 @@ export function ContactUs() {
               <div className="p-6 bg-white border border-[#E0D9CD] rounded-sm shadow-sm space-y-3">
                 <div className="flex items-center justify-between">
                   <h3 className="font-serif text-lg font-bold text-slate-900">Rahul Mantri</h3>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#9A7830] bg-[#FAF5EC] px-2.5 py-0.5 rounded border border-[#EADBBE]">
-                    Partner
-                  </span>
                 </div>
                 <p className="text-xs text-slate-500 font-light">30+ Years Capital Markets &amp; Corporate Finance</p>
                 <div className="pt-2 border-t border-slate-100 space-y-1.5 text-xs text-slate-700">
@@ -104,9 +98,6 @@ export function ContactUs() {
               <div className="p-6 bg-white border border-[#E0D9CD] rounded-sm shadow-sm space-y-3">
                 <div className="flex items-center justify-between">
                   <h3 className="font-serif text-lg font-bold text-slate-900">Daksh Khandelwal</h3>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#9A7830] bg-[#FAF5EC] px-2.5 py-0.5 rounded border border-[#EADBBE]">
-                    Partner
-                  </span>
                 </div>
                 <p className="text-xs text-slate-500 font-light">Strategic Growth &amp; Debt Syndication</p>
                 <div className="pt-2 border-t border-slate-100 space-y-1.5 text-xs text-slate-700">

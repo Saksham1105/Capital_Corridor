@@ -90,24 +90,22 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Direct Partner Channels */}
+          {/* Column 3: Direct Channels */}
           <div className="lg:col-span-3 space-y-4">
             <h3 className="text-white text-[11px] font-bold uppercase tracking-[0.25em] flex items-center gap-2">
-              <span className="w-2.5 h-0.5 bg-[#C5A059]" /> Partner Direct
+              <span className="w-2.5 h-0.5 bg-[#C5A059]" /> Contact Us
             </h3>
             
             <div className="space-y-4 text-xs font-light">
               <div className="p-3 bg-[#081224] border border-[#162744] rounded-sm">
                 <div className="text-white font-serif text-sm font-semibold">Rahul Mantri</div>
-                <div className="text-[10px] text-[#C5A059] font-medium tracking-wider uppercase mb-1">Partner — 30+ Yrs Exp</div>
-                <a href="tel:+919826033481" className="text-white hover:text-[#C5A059] transition-colors block text-xs font-serif font-medium">+91 98260 33481</a>
+                <a href="tel:+919826033481" className="text-white hover:text-[#C5A059] transition-colors block text-xs font-serif font-medium mt-1">+91 98260 33481</a>
                 <a href="mailto:rahull@capitalcorridor.in" className="text-slate-400 hover:text-white transition-colors block text-[11px] font-sans">rahull@capitalcorridor.in</a>
               </div>
 
               <div className="p-3 bg-[#081224] border border-[#162744] rounded-sm">
                 <div className="text-white font-serif text-sm font-semibold">Daksh Khandelwal</div>
-                <div className="text-[10px] text-[#C5A059] font-medium tracking-wider uppercase mb-1">Partner — Growth & Syndication</div>
-                <a href="tel:+918003157877" className="text-white hover:text-[#C5A059] transition-colors block text-xs font-serif font-medium">+91 80031 57877</a>
+                <a href="tel:+918003157877" className="text-white hover:text-[#C5A059] transition-colors block text-xs font-serif font-medium mt-1">+91 80031 57877</a>
                 <a href="mailto:daksh@capitalcorridor.in" className="text-slate-400 hover:text-white transition-colors block text-[11px] font-sans">daksh@capitalcorridor.in</a>
               </div>
 

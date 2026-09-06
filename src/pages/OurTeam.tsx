@@ -80,7 +80,7 @@ export function OurTeam() {
               <div>
                 <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900">Rahul Mantri</h2>
                 <div className="text-xs uppercase font-bold text-[#9A7830] tracking-widest mt-1">
-                  Partner &bull; 30+ Years Experience
+                  30+ Years Experience
                 </div>
               </div>
 
@@ -133,7 +133,7 @@ export function OurTeam() {
               <div>
                 <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900">Daksh Khandelwal</h2>
                 <div className="text-xs uppercase font-bold text-[#9A7830] tracking-widest mt-1">
-                  Partner &bull; Strategic Growth &amp; Syndication
+                  Strategic Growth
                 </div>
               </div>
 

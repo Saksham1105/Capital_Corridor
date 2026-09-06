@@ -43,7 +43,7 @@ export function LeadershipShowcaseV4() {
             <div className="flex-1 space-y-4">
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#9A7830]">
-                  Partner &bull; 30+ Years Experience
+                  30+ Years Experience
                 </span>
                 <h3 className="text-2xl font-serif font-bold text-slate-900 mt-1">
                   Rahul Mantri
@@ -79,7 +79,7 @@ export function LeadershipShowcaseV4() {
               <div className="aspect-[4/5] rounded-sm overflow-hidden border border-[#E0D9CD] shadow-inner bg-[#0B1528]">
                 <img 
                   src="/images/daksh-khandelwal.jpg" 
-                  alt="Daksh Khandelwal - Partner at Capital Corridor"
+                  alt="Daksh Khandelwal - Partner at Capital Corridor" 
                   className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -88,7 +88,7 @@ export function LeadershipShowcaseV4() {
             <div className="flex-1 space-y-4">
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#9A7830]">
-                  Partner &bull; Strategic Growth
+                  Strategic Growth
                 </span>
                 <h3 className="text-2xl font-serif font-bold text-slate-900 mt-1">
                   Daksh Khandelwal
