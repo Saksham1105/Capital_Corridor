@@ -84,10 +84,7 @@ export function LeadershipShowcaseV4() {
 
             <div className="flex-1 space-y-4">
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#9A7830]">
-                  Strategic Growth
-                </span>
-                <h3 className="text-2xl font-serif font-bold text-slate-900 mt-1">
+                <h3 className="text-2xl font-serif font-bold text-slate-900">
                   Daksh Khandelwal
                 </h3>
               </div>

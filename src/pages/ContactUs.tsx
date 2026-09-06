@@ -82,7 +82,6 @@ export function ContactUs() {
                 <div className="flex items-center justify-between">
                   <h3 className="font-serif text-lg font-bold text-slate-900">Rahul Mantri</h3>
                 </div>
-                <p className="text-xs text-slate-500 font-light">Capital Markets &amp; Corporate Finance</p>
                 <div className="pt-2 border-t border-slate-100 space-y-1.5 text-xs text-slate-700">
                   <p className="flex items-center">
                     <Phone className="h-3.5 w-3.5 text-[#9A7830] mr-2 shrink-0" />
@@ -99,7 +98,6 @@ export function ContactUs() {
                 <div className="flex items-center justify-between">
                   <h3 className="font-serif text-lg font-bold text-slate-900">Daksh Khandelwal</h3>
                 </div>
-                <p className="text-xs text-slate-500 font-light">Strategic Growth &amp; Debt Syndication</p>
                 <div className="pt-2 border-t border-slate-100 space-y-1.5 text-xs text-slate-700">
                   <p className="flex items-center">
                     <Phone className="h-3.5 w-3.5 text-[#9A7830] mr-2 shrink-0" />
