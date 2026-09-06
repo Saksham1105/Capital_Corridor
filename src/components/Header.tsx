@@ -12,7 +12,6 @@ const navLinks = [
   { name: 'Our Team', path: '/our-team' },
   { name: 'Financial Tools', path: '/calculators' },
   { name: 'Resources', path: '/resources' },
-  { name: 'Contact Us', path: '/contact' },
 ];
 
 export function Header() {

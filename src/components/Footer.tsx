@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MessageCircle, MapPin, Clock, ShieldCheck, ArrowUpRight } from 'lucide-react';
+import { Mail, MessageCircle, Clock, ShieldCheck, ArrowUpRight } from 'lucide-react';
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -101,15 +101,14 @@ export function Footer() {
                 <div className="text-white font-serif text-sm font-semibold">Rahul Mantri</div>
                 <div className="text-[10px] text-[#C5A059] font-medium tracking-wider uppercase mb-1">Partner — 30+ Yrs Exp</div>
                 <a href="tel:+919826033481" className="text-white hover:text-[#C5A059] transition-colors block text-xs font-serif font-medium">+91 98260 33481</a>
-                <a href="mailto:rahul@capitalcorridor.in" className="text-slate-400 hover:text-white transition-colors block text-[11px] font-sans">rahul@capitalcorridor.in</a>
+                <a href="mailto:rahull@capitalcorridor.in" className="text-slate-400 hover:text-white transition-colors block text-[11px] font-sans">rahull@capitalcorridor.in</a>
               </div>
 
               <div className="p-3 bg-[#081224] border border-[#162744] rounded-sm">
                 <div className="text-white font-serif text-sm font-semibold">Daksh Khandelwal</div>
                 <div className="text-[10px] text-[#C5A059] font-medium tracking-wider uppercase mb-1">Partner — Growth & Syndication</div>
-                <a href="tel:+918003157877" className="text-slate-400 hover:text-[#C5A059] flex items-center gap-1.5 transition-colors">
-                  <Phone className="h-3 w-3 text-[#C5A059]" /> +91 80031 57877
-                </a>
+                <a href="tel:+918003157877" className="text-white hover:text-[#C5A059] transition-colors block text-xs font-serif font-medium">+91 80031 57877</a>
+                <a href="mailto:daksh@capitalcorridor.in" className="text-slate-400 hover:text-white transition-colors block text-[11px] font-sans">daksh@capitalcorridor.in</a>
               </div>
 
               <div className="space-y-1.5 pt-1">

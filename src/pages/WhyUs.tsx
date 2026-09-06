@@ -26,7 +26,7 @@ export function WhyUs() {
     {
       num: "04",
       title: "Three Decades of Market Heritage",
-      desc: "Led by former CEO of a listed broking institution with 30+ years across Indian capital markets, debt syndication, corporate restructuring, and financial consultancy."
+      desc: "Led by former CEO of a stock broking institution with 30+ years across Indian capital markets, debt syndication, corporate restructuring, and financial consultancy."
     },
     {
       num: "05",

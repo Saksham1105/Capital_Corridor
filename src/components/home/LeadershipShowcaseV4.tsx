@@ -51,7 +51,7 @@ export function LeadershipShowcaseV4() {
               </div>
 
               <p className="text-xs text-slate-600 font-light leading-relaxed">
-                Seasoned financial markets and corporate finance leader. Former CEO of a leading listed stock broking company. Specialises in structured debt, institutional lending, debt syndication, NPA resolution, OTS structuring, and complex corporate transactions.
+                Seasoned financial markets and corporate finance leader. Former CEO of a stock broking company. Specialises in structured debt, institutional lending, debt syndication, NPA resolution, OTS structuring, and complex corporate transactions.
               </p>
 
               <div className="pt-3 border-t border-slate-100 space-y-2 text-xs">

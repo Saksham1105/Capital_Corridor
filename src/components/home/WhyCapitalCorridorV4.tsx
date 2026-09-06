@@ -1,4 +1,4 @@
-﻿import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { 
   ShieldCheck, Network, Cpu, Users, 
   Workflow, ArrowRight, CheckCircle2, Lock 
@@ -27,7 +27,7 @@ export function WhyCapitalCorridorV4() {
     {
       num: "04",
       title: "Three Decades of Market Leadership",
-      desc: "Founded on senior leadership with 30+ years in capital markets and corporate finance, having previously led a listed stock broking institution as CEO.",
+      desc: "Founded on senior leadership with 30+ years in capital markets and corporate finance, having previously led a stock broking institution as CEO.",
       icon: ShieldCheck
     },
     {

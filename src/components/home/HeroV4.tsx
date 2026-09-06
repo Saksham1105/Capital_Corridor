@@ -86,11 +86,10 @@ export function HeroV4() {
             <div className="bg-[#081222]/90 backdrop-blur-md border border-[#1E3458] rounded-sm p-6 sm:p-7 shadow-2xl relative">
               <div className="absolute top-0 right-0 w-24 h-24 bg-[#C5A059]/10 rounded-full blur-2xl pointer-events-none" />
               
-              <div className="flex items-center justify-between border-b border-[#1A2D4E] pb-4 mb-5">
+              <div className="flex items-center border-b border-[#1A2D4E] pb-4 mb-5">
                 <div className="flex items-center gap-2 text-[#C5A059] text-[11px] uppercase tracking-[0.2em] font-semibold">
                   <ShieldCheck className="h-4 w-4" /> Partner-Led Practice
                 </div>
-                <span className="text-[9px] font-mono text-slate-500 uppercase">EST. 1990s</span>
               </div>
 
               <div className="space-y-4">
