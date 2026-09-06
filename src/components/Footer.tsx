@@ -133,13 +133,13 @@ export function Footer() {
             
             <div className="space-y-3 text-xs font-light text-slate-400">
               <div>
-                <div className="text-white font-medium text-[11px]">Principal Office</div>
-                <p className="leading-relaxed mt-0.5">S.G. Tower, 1st Floor, Vaishali Nagar, Ajmer, Rajasthan — 305001</p>
+                <div className="text-white font-medium text-[11px]">Office 1</div>
+                <p className="leading-relaxed mt-0.5">Plot No. 401/10, Near Church, Brahampuri, Suchna Kendra Circle, Ajmer, Rajasthan – 305001, India.</p>
               </div>
 
               <div>
-                <div className="text-white font-medium text-[11px]">City Office 2</div>
-                <p className="leading-relaxed mt-0.5">Plot No. 401/10, Brahmapuri, Suchna Kendra Circle, Ajmer</p>
+                <div className="text-white font-medium text-[11px]">Office 2</div>
+                <p className="leading-relaxed mt-0.5">A-1-A, ACR Scheme, Near Petrol Pump, Vaishali Nagar, Ajmer, Rajasthan – 305001, India.</p>
               </div>
 
               <div className="pt-2 border-t border-[#162744]">

@@ -130,12 +130,12 @@ export function ContactUs() {
               
               <div className="space-y-3 text-xs text-slate-300 font-light">
                 <div className="border-b border-[#142540] pb-2">
-                  <strong className="text-white block font-medium">Principal Office (Office 1):</strong>
-                  S.G. Tower, First Floor, Chaurasiyawas Road, Near Jhulelal Mandir, Vaishali Nagar, Ajmer, Rajasthan – 305001
+                  <strong className="text-white block font-medium">Office 1:</strong>
+                  Plot No. 401/10, Near Church, Brahampuri, Suchna Kendra Circle, Ajmer, Rajasthan – 305001, India.
                 </div>
                 <div>
-                  <strong className="text-white block font-medium">City Office (Office 2):</strong>
-                  Plot No. 401/10, Near Church, Opp. T.B. Hospital, Brahmapuri, Suchna Kendra Circle, Ajmer, Rajasthan
+                  <strong className="text-white block font-medium">Office 2:</strong>
+                  A-1-A, ACR Scheme, Near Petrol Pump, Vaishali Nagar, Ajmer, Rajasthan – 305001, India.
                 </div>
               </div>
 
