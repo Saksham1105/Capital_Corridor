@@ -163,11 +163,23 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-light">
-          <div>
-            &copy; {year} Capital Corridor. All rights reserved. Registered in Ajmer, Rajasthan.
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
+            <span>&copy; {year} Capital Corridor. All rights reserved. Registered in Ajmer, Rajasthan.</span>
+            <span className="hidden sm:inline text-slate-700">•</span>
+            <span>
+              Developed By{' '}
+              <a 
+                href="https://mazrik.in/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-[#C5A059] transition-colors font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C5A059] rounded-xs"
+              >
+                Mazrik
+              </a>
+            </span>
           </div>
           
-          <div className="flex flex-wrap items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-6">
             <Link to="/about" className="hover:text-[#C5A059] transition-colors">About Firm</Link>
             <Link to="/our-team" className="hover:text-[#C5A059] transition-colors">Leadership</Link>
             <Link to="/calculators" className="hover:text-[#C5A059] transition-colors">Financial Tools</Link>
