@@ -4,6 +4,8 @@ import { ResourceCard, ResourceItem } from '../components/resources/ResourceCard
 import { CategoryFilter, ResourceCategory } from '../components/resources/CategoryFilter';
 import { NewsletterSignup } from '../components/resources/NewsletterSignup';
 import { EmptyResourceState } from '../components/resources/EmptyResourceState';
+import { FaqSection } from '../components/resources/FaqSection';
+import { FAQ_DATA } from '../data/faqData';
 import { BookOpen } from 'lucide-react';
 
 const categoriesList: ResourceCategory[] = ['All', 'Blogs', 'Case Studies', 'Industry Insights', 'News & Updates', 'Newsletter'];
@@ -46,12 +48,26 @@ export function Resources() {
     ? resources 
     : resources.filter(r => r.category === activeCategory);
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': FAQ_DATA.map((item) => ({
+      '@type': 'Question',
+      'name': item.question,
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': item.steps ? `${item.answer} ${item.steps.map((s, i) => `${i + 1}. ${s}`).join(' ')}` : item.answer,
+      },
+    })),
+  };
+
   return (
     <div className="flex flex-col w-full bg-[#FDFBF7]">
       <SEO 
-        title="Resources & Insights — Financial Advisory & Capital Markets | Capital Corridor" 
-        description="Explore research papers, strategic briefs, market insights, and industry intelligence on structured finance, debt syndication, and capital markets."
+        title="Resources & Insights — Financial Advisory & Capital Markets" 
+        description="Explore research papers, strategic briefs, market insights, and frequently asked questions on structured finance, debt syndication, and capital markets."
         canonicalUrl="/resources"
+        schema={faqSchema}
       />
 
       {/* Header */}
@@ -70,7 +86,7 @@ export function Resources() {
         </div>
       </section>
 
-      {/* Main Content */}
+      {/* Main Content - Publications */}
       <section className="py-16 px-4 sm:px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
           <CategoryFilter 
@@ -95,6 +111,9 @@ export function Resources() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FaqSection />
     </div>
   );
 }
