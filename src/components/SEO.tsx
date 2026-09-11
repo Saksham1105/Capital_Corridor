@@ -10,7 +10,7 @@ interface SEOProps {
 
 export function SEO({ title, description, canonicalUrl, schema, rawTitle }: SEOProps) {
   const fullTitle = rawTitle ? title : `${title} | Capital Corridor`;
-  const baseUrl = 'https://www.capitalcorridor.in';
+  const baseUrl = 'https://capitalcorridor.in';
   const url = canonicalUrl ? `${baseUrl}${canonicalUrl}` : baseUrl;
 
   return (
